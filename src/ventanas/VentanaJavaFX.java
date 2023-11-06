@@ -3,36 +3,31 @@ package ventanas;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class VentanaJavaFX extends Application {
     @Override
     public void start(Stage primaryStage) {
-        // Configurar la ventana
         primaryStage.setTitle("Ejemplo de JavaFX");
 
-        // Crear una etiqueta
-        Label label = new Label("¡Hola, JavaFX!");
+        Pane root = new Pane();  // Utilizamos un Pane como contenedor
 
-        // Crear un botón
-        Button button = new Button("Haz clic");
+        // Crear un botón y establecer su posición
+        Button button1 = new Button("Botón 1");
+        button1.setLayoutX(100); // Posición X
+        button1.setLayoutY(50);  // Posición Y
 
-        // Configurar el evento del botón
-        button.setOnAction(e -> label.setText("¡Has hecho clic en el botón!"));
+        Button button2 = new Button("Botón 2");
+        button2.setLayoutX(200);
+        button2.setLayoutY(100);
 
-        // Crear un contenedor y agregar la etiqueta y el botón
-        StackPane root = new StackPane();
-        root.getChildren().addAll(label, button);
 
-        // Crear la escena
-        Scene scene = new Scene(root, 300, 200);
+        root.getChildren().addAll(button1, button2);
 
-        // Configurar la escena en la ventana
+        Scene scene = new Scene(root, 400, 200);
+
         primaryStage.setScene(scene);
-
-        // Mostrar la ventana
         primaryStage.show();
     }
 
